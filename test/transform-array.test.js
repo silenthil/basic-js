@@ -43,7 +43,7 @@ describe('Transform array', () => {
         });
 
         it.optional('doesn\'t affect simple arrays', () => {
-            for (let i = 0; i < 50; i += 1) {
+            for (let i = 0; i < 5; i += 1) {
                 const randArr = createSimpleArr(50);
                 assert.deepStrictEqual(transform(randArr), randArr);
             }
@@ -90,14 +90,14 @@ describe('Transform array', () => {
         });
 
         it.optional('control sequences work properly', () => {
-            for(let i = 0; i < 50; i += 1) {
+            for(let i = 0; i < 5; i += 1) {
                 const { input, output } = createSample(i);
                 assert.deepStrictEqual(transform(input), output);
             }   
         });
 
         it.optional('doesn\'t change initial array', () => {
-            for(let i = 0; i < 50; i += 1) {
+            for(let i = 0; i < 5; i += 1) {
                 const { input } = createSample(i);
                 const inputCopy = [...input];
                 transform(input);
