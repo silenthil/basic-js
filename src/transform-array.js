@@ -11,18 +11,19 @@ module.exports = function transform(arr) {
         continue
       } else {
         i++
-        x = false
       }
+      x = false
     }
     else if (arr[i] == '--discard-prev') {
+      console.log(x == false)
       if (i == 0 || arr[i - 1] == '--double-next' || arr[i - 1] == '--double-prev' || arr[i - 1] == '--discard-prev' || arr[i - 1] == '--discard-next') {
         continue
       } else
         if (x == false) {
           continue
-          x = true
         } else {
           a.splice(n - 1, 1)
+          n--
         }
       x = true
     }
@@ -39,7 +40,6 @@ module.exports = function transform(arr) {
       x = true
     }
     else if (arr[i] == '--double-prev') {
-      console.log(a[i - 1] === undefined)
       if (i == 0 || arr[i - 1] == '--double-next' || arr[i - 1] == '--discard-prev' || arr[i - 1] == '--discard-next') {
         continue
         x = true
@@ -59,6 +59,7 @@ module.exports = function transform(arr) {
     }
   }
   console.log(a);
+  x=true
   return a
 }
 
